@@ -69,3 +69,22 @@ font-weight: bold;
 #equal:hover{
     background-color: #e65766;
 }
+
+@media (max-width: 768px){
+
+    html{
+        font-size: 54%;
+    }
+}
+
+@media (max-width: 600px){
+    html{
+        font-size: 38%;
+    }
+
+}
+
+@media (max-width: 430px){
+    html{
+        font-size: 30%;
+    }
