@@ -52,5 +52,58 @@ buttons.forEach(button => {
         }else{
             display.textContent += btnclicked; // 
         }
-    })
-})
+    }); 
+}); 
+
+
+
+// Key function to accept keys in keyboard
+document.addEventListener('keydown', function(event){
+    const key = event.key;  
+
+    // This object links keyboard keys to buttons
+    const keyMap = {
+        '0' : '0',
+        '1' : '1',
+        '2' : '2',
+        '3' : '3',
+        '4' : '4',
+        '5' : '5',
+        '6' : '6',
+        '7' : '7',
+        '8' : '8',
+        '9' : '9',
+        '+' : '+',
+        '-' : '-',
+        '*' : '*',
+        '/' : '/',
+        '.' : '.',
+        'Enter' : '=',
+        '=' : '=',
+        'Backspace' : 'DEL',
+        'Escape' : 'AC',
+    };
+
+    // check if key pressed is in key map
+    if (key in keyMap){
+        const targetValue = keyMap[key];
+
+    // Go throurh each button and find the one that matches
+        for(let i = 0; i < buttons.length; i++){
+            let button = buttons[i];
+            let buttonText = button.textContent;
+
+            // Check if button text matches key value
+            if(
+                buttonText === targetValue ||
+                (button.id === 'equal' && targetValue === '=') ||
+                (button.id === 'delete' && targetValue === 'DEL') ||
+                (button.id === 'reset' && targetValue === "AC")
+            ){
+                button.click();  // Act like the user clicked the button
+                break; // stop looking  once match is found
+            }
+        }
+    }
+
+});
